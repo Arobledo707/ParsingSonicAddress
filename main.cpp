@@ -116,6 +116,12 @@ void ParseAddress(const char* address, int size)
         << "\n" << "City:" << city
         << "\n" << "State:" << state
         << "\n" << "Zip Code:" << zipCode << std::endl;
+    
+    // Delete wasn't called so this was leaking memory :(
+    delete[] zipCode;
+    delete[] city;
+    delete[] streetName;
+    delete[] streetNumber;
 }
 
 
